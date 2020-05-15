@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Sam's Remote</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+
+
+
+
+html, body {
+  overflow: hidden;
+}
+
+body{
+  background-color: #ec9db0;
+}
+
+#video{
+  margin-top: 10vh;
+  padding-top: 15vh;
+  height: 110vh;
+  opacity: 100;
+  display: block;
+  z-index:50;
+}
+
+#remotestill{
+  margin-top: 10vh;
+  padding-top: 15vh;
+  height: 110vh;
+  display: block;
+  z-index: 100;
+  pointer-events: none;
+}
+
+#button-container{
+  margin-top: 33.9vh;
+  position: absolute;
+  margin-left: 51%;
+  z-index:100;
+}
+
+button{
+background-color: Transparent;
+border: none;
+  height: 63px;
+  display: block;
+  z-index:-100;
+margin: 7.25px;
+  width:110px;
+  cursor: pointer;
+  outline: none;
+   box-shadow: none;
+}
+
+.light-container{
+  position: absolute;
+  margin-top: 33.9vh;
+  margin-left: 43%;
+  z-index:-500;
+}
+
+.light{
+  background-color: #8c171c;
+  border: none;
+    height: 63px;
+    display: block;
+    z-index:-100;
+  margin: 7.25px;
+    width:100px;
+    cursor: pointer;
+    outline: none;
+     box-shadow: none;
+}
+
+#light1, #light2, #light3, #light4, #light5, #light6{
+  background-color: #8c171c;
+}
+
+@media only screen and (max-width: 1200px) {
+
+.light-container{
+  margin-left: 33%;
+}
+
+  .light{
+    width: 200px;
+  }
+}
+
+    </style>
+  </head>
+  <body>
+<center>
+
+    <div class= "light-container">
+      <button id= "light1" class="light" src="github.com/ddemetz"></button>
+      <button id= "light2" class="light"></button>
+      <button id= "light3" class="light"></button>
+      <button id= "light4" class="light"></button>
+      <button id= "light5" class="light"></button>
+      <button id= "light6" class="light"></button>
+    </div>
+
+
+    <div id = "button-container">
+      <button id="button1" class="button"></button>
+      <button id="button2" class="button"></button>
+      <button id="button3" class="button"></button>
+      <button id="button4" class="button"></button>
+      <button id="button5" class="button"></button>
+      <button id="button6" class="button"></button>
+
+  </div>
+  <div id="remote-vid">
+  <video id= "video" preload autoplay muted>
+  <source src="assets/webremote.mp4"/>
+  </video>
+  <image src="assets/remotestill.png" id="remotestill">
+</div>
+</center>
+
+<script>
+
+// variables
+
+var video = document.getElementById('video');
+
+var audio1 = new Audio("assets/applause.mp3");
+var audio2 = new Audio("assets/cheering.mp3");
+var audio3 = new Audio("assets/siren.mp3");
+var audio4 = new Audio("assets/boo.mp3");
+var audio5 = new Audio("assets/randomdancing.mp3");
+// var audio6 = new Audio("assets/ringring.mp3");
+
+var button1 = document.getElementById('button1');
+var button2 = document.getElementById('button2');
+var button3 = document.getElementById('button3');
+var button4 = document.getElementById('button4');
+var button5 = document.getElementById('button5');
+// var button6 = document.getElementById('button6');
+
+var light1 = document.getElementById('light1');
+var light2 = document.getElementById('light2');
+var light3 = document.getElementById('light3');
+var light4 = document.getElementById('light4');
+var light5 = document.getElementById('light5');
+// var light6 = document.getElementById('light6');
+
+
+
+video.addEventListener("ended",hide)
+
+function hide(){
+  video.style.opacity = 0;
+  video.style.display = "none";
+}
+
+audio1.addEventListener("ended",backtored1);
+function backtored1(){
+light1.style.backgroundColor = "#8c171c";
+}
+audio2.addEventListener("ended",backtored2);
+function backtored2(){
+light2.style.backgroundColor = "#8c171c";
+}
+audio3.addEventListener("ended",backtored3);
+function backtored3(){
+light3.style.backgroundColor = "#8c171c";
+}
+audio4.addEventListener("ended",backtored4);
+function backtored4(){
+light4.style.backgroundColor = "#8c171c";
+}
+audio5.addEventListener("ended",backtored5);
+function backtored5(){
+light5.style.backgroundColor = "#8c171c";
+}
+// audio6.addEventListener("ended",backtored6);
+// function backtored6(){
+// light6.style.backgroundColor = "#8c171c";
+// }
+
+
+
+button1.addEventListener("click", play1);
+button2.addEventListener("click", play2);
+button3.addEventListener("click", play3);
+button4.addEventListener("click", play4);
+button5.addEventListener("click", play5);
+// button6.addEventListener("click", play6);
+
+function play1(){
+audio1.play();
+light1.style.backgroundColor = "red";
+}
+
+function play2(){
+audio2.play();
+light2.style.backgroundColor = "red";
+}
+
+function play3(){
+audio3.play();
+light3.style.backgroundColor = "red";
+}
+
+function play4(){
+audio4.play();
+light4.style.backgroundColor = "red";
+}
+
+function play5(){
+audio5.play();
+light5.style.backgroundColor = "red";
+}
+
+// function play6(){
+// audio6.play();
+// light6.style.backgroundColor = "red";
+// }
+
+</script>
+
+
+
+  </body>
+</html>
